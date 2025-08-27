@@ -1,0 +1,10 @@
+[project]
+name = "settings"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dj-database-url>=3.0.1",
+    "django-environ>=0.12.0",
+]
