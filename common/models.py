@@ -6,7 +6,9 @@ import uuid
 
 class AbstractModel(models.Model):
 
-    uuid = models.UUIDField(uuid=uuid.uuid4, editable=False, unique=True, db_index=True)
+    uuid = models.UUIDField(
+        default=uuid.uuid4, editable=False, unique=True, db_index=True
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
