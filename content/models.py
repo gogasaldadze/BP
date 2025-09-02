@@ -49,7 +49,7 @@ class Product(AbstractModel):
     description = models.TextField()
     category = models.CharField(max_length=12, choices=CategoryType.choices)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(blank=True, null=True, upload_to="media/products/")
 
 
 class Order(AbstractModel):
@@ -72,7 +72,11 @@ class Order(AbstractModel):
 class OrderItem(AbstractModel):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="items")
     product = models.ForeignKey(
-        Product, on_delete=models.SET_NULL, related_name="order_items"
+        Product,
+        on_delete=models.SET_NULL,
+        related_name="order_items",
+        null=True,
+        blank=True,
     )
     quantity = models.IntegerField()
     unit_price = models.DecimalField(max_digits=10, decimal_places=2)
