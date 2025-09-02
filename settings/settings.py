@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "access.apps.AccessConfig",
     "content.apps.ContentConfig",
     "api.apps.ApiConfig",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
