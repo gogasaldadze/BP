@@ -55,7 +55,11 @@ class User(AbstractBaseUser, AbstractModel):
     )
 
     user_type = models.CharField(
-        max_length=10, choices=UserType.choices, help_text="Type of user account"
+        max_length=10,
+        choices=UserType.choices,
+        help_text="Type of user account",
+        blank=True,
+        null=True,
     )
 
     # Permission fields
@@ -72,7 +76,7 @@ class User(AbstractBaseUser, AbstractModel):
 
     # Django auth requirements
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["user_type"]
+    REQUIRED_FIELDS = []
 
     objects = UserManager()
 
